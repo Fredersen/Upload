@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     $file = $uniqName . "." . $extension;
 
     move_uploaded_file($_FILES['homerPicture']['tmp_name'], './' . $file);
-    return $file;
+    header('location:/form.php?name=' . $file);
 }
 
 
@@ -41,6 +41,6 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     <input type="file" name="homerPicture" id="imageUpload" />
     <button name="send">Send</button>
 </form>
-<img src=<?php echo "./" . $file;?>>
+<img src= <?php echo './'.$_GET["name"]; ?>> 
 </body>
 </html>
